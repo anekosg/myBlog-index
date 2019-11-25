@@ -1,0 +1,27 @@
+{
+  "name": "mypro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-plugin-component": "^1.1.1",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --port 3000 --contentBase src --hot"
+  },
+  "author": "aneko",
+  "license": "MIT"
+}
