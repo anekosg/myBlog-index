@@ -41,17 +41,74 @@
                     <!-- <img src="images/banner-01.png" alt="" width="100%" > -->
                   </el-carousel-item>
                 </el-carousel>
+
+                <!-- 标签页 -->
+                <el-tabs class="main-tabs">
+                  <el-tab-pane label="置顶文章" name="first">
+                    <ul class="main-tabs-ul">
+                      <li>
+                        <div>
+                          <span class="main-tabs-spanSerial">1</span>
+                          <span class="main-tabs-spanTitle">我是握手</span>
+                        </div>
+                        <p>
+                          我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握
+                          手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手
+                        </p>
+                      </li>
+                      <li>
+                        <div>
+                          <span class="main-tabs-spanSerial">2</span>
+                          <span class="main-tabs-spanTitle">我是握手</span>
+                        </div>
+                        <p>11111</p>
+                      </li>
+                      <li>
+                        <div>
+                          <span class="main-tabs-spanSerial">3</span>
+                          <span class="main-tabs-spanTitle">我是握手</span>
+                        </div>
+                        <p></p>
+                      </li>
+                    </ul>
+                  </el-tab-pane>
+                  <el-tab-pane label="最新文章" name="second">最新文章</el-tab-pane>
+                  <el-tab-pane label="推荐文章" name="third">推荐文章</el-tab-pane>
+                  <el-tab-pane label="Html与CSS" name="fourth">Html与CSS</el-tab-pane>
+                </el-tabs>
               </el-main>
               <el-aside width="200px">
-
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix">
+                <el-card class="box-card box-user">
+                  <!-- <div  slot="header" class="clearfix">
                     <span>卡片名称</span>
                     <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+                  </div>-->
+                  <!-- <div v-for="o in 1" :key="o" class="text item">{{'列表内容 ' + o }}</div> -->
+                  <p class="card-title">
+                    <span>关于我</span>
+                  </p>
+                  <div class="clearfix">
+                    <ul class="card-description ulFloat">
+                      <li>昵称：aneko</li>
+                      <li>职业：前端工程师</li>
+                      <li>爱好：吉他,跑步,读书</li>
+                    </ul>
                   </div>
-                  <div v-for="o in 1" :key="1" class="text item">{{'列表内容 ' + o }}</div>
+                  <p class="card-chat">
+                    <span>联系我</span>
+                    <el-image src="images/weChat.png" fit="cover" class="chat-img-small"></el-image>
+
+                    <el-image src="images/weChat.png" fit="cover" class="chat-img-large"></el-image>
+                  </p>
                 </el-card>
 
+                <el-card class="box-card card-record">
+                  <div slot="header" class="clearfix card-record-divTitle">
+                    <span class="">最新评论</span>
+                    
+                  </div>
+                  <div v-for="o in 4" :key="o" class="text item">{{'列表内容 ' + o }}</div>
+                </el-card>
               </el-aside>
             </el-container>
             <el-footer>Footer</el-footer>
@@ -81,7 +138,7 @@ export default {
 <style scoped lang="scss">
 // 自定义
 .el-mains {
-  margin: 0 150px;
+  margin: 0 200px;
 }
 
 .el-header,
@@ -90,12 +147,12 @@ export default {
   color: #333;
   text-align: center;
   line-height: 60px;
-  padding: 0 150px;
+  padding: 0 200px;
+  margin-bottom: 20px;
 }
 .el-header {
   // padding-left: 100px;
   display: flex;
-
   justify-content: space-between;
 }
 .el-header .logo span {
@@ -108,7 +165,7 @@ export default {
 }
 .el-menu.el-menu--horizontal {
   border: 0;
-  padding-right: 220px;
+  padding-left: 20%;
 }
 .el-menu-item {
   border: 0 !important;
@@ -116,20 +173,17 @@ export default {
 
 .el-carousel {
   height: 300px;
+  margin-bottom: 20px;
 }
 .el-carousel__item {
   background: url(/images/banner-01.png) no-repeat center;
   background-size: cover;
 }
-.el-carousel__indicators {
-}
-
-
 
 .el-main {
   color: #333;
   text-align: center;
-  margin: 5px 5px 0 0;
+  margin: 0 20px 0 0;
   padding: 0;
 }
 
@@ -148,60 +202,150 @@ body > .el-container {
 
 //右边
 .el-aside {
-  margin: 5px 0 0;
-  background-color: #37b3f1;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
+
+  // background-color: #37b3f1;
+  // color: #333;
+  // text-align: center;
+  // line-height: 200px;
 }
 
-.text {
-    font-size: 14px;
-  }
-  
-  .item {
-    margin-bottom: 18px;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both
-  }
-
-  .box-card {
-    width: 480px;
-  }
-
-
-
-.el-row {
+.box-user,.card-record{
   margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
+}
+
+.box-card .card-title,
+.card-chat {
+  margin: 0;
+  text-align: center;
+  &:nth-child(1) {
+    font-size: 20px;
+    font-weight: 500;
+  
   }
 }
-.el-col {
-  border-radius: 4px;
+.box-card .card-chat span {
+  font-size: 20px;
+  font-weight: 500;
+
 }
-.bg-purple-dark {
-  // background: #99a9bf;
+.card-chat {
+  position: relative;
 }
-.bg-purple {
-  background: #d3dce6;
+.box-card .chat-img-small {
+ 
+  margin: 16px 50px;
+  width: 50px;
+  height: 50px;
 }
-.bg-purple-light {
-  background: #e5e9f2;
+
+.box-card .chat-img-small:hover + .chat-img-large {
+  display: block;
 }
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
+.card-chat .chat-img-large {
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  margin-left: -50px;
+  top: 0;
+  margin-top: -65px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
-.row-bg {
-  padding: 10px 0;
-  background-color: #f9fafc;
+
+.box-card ul {
+  padding: 0;
+  width: 100%;
+}
+
+// 选项卡
+.main-tabs {
+  background-color: #fff;
+  margin-bottom: 5px;
+  height: 300px;
+  overflow: hidden;
+
+  .main-tabs-ul {
+    text-decoration: none;
+    list-style: none;
+    text-align: left;
+
+    margin: 0 60px 0 60px;
+    padding-left: 0;
+    // border: 1px solid gray;
+    overflow: hidden;
+    & li {
+      padding: 10px 10px;
+      p {
+        display: none;
+      }
+      border-bottom: 1px solid gray;
+      // &:last-child {
+      //   border-bottom: 0;
+      // }
+      .main-tabs-spanSerial {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+
+        background-color: #000000;
+        color: #ffffff;
+        text-align: center;
+      }
+      .main-tabs-spanTitle {
+        margin-left: 30px;
+        line-height: 16px;
+      }
+    }
+
+    // & li:first-child {
+    //   p {
+    //     display: block;
+    //   }
+    //   & .main-tabs-spanSerial {
+    //     width: 30px;
+    //     height: 30px;
+    //     line-height: 30px;
+    //   }
+    //   & .main-tabs-spanTitle {
+    //     line-height: 30px;
+    //   }
+    // }
+
+    & li:hover {
+      background: #f7f7f7;
+      p {
+        display: block;
+        font-size: 14px;
+      }
+      .main-tabs-spanSerial {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .main-tabs-spanTitle {
+        line-height: 30px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.card-record .card-record-divTitle{
+  text-align: center;
+}
+</style>
+
+<style scope lang="scss">
+.main-tabs {
+  .el-tabs__nav {
+    margin: 8px 0 0 60px;
+    padding-bottom: 10px;
+  }
 }
 </style>
