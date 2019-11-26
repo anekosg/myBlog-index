@@ -1,17 +1,28 @@
-body{
+/* 初始化 */
+
+html {
+    font-family: Hiragino Sans GB, MicroSoft YaHei, Tahoma, Arial, Roboto, ”Droid Sans”, ”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”, ”Hiragino Sans GB”, Simsun, sans-self;
     background: #f1f1f1;
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-.clearfix:after {
-  clear: both
+    color: #333;
+    font-size: 16px;
+    line-height: 1.75em;
 }
 
-.ulFloat{
-  float: left;
-  text-decoration: none;
-  list-style: none;
+
+/* 清除浮动 */
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.ulFloat {
+    float: left;
+    text-decoration: none;
+    list-style: none;
 }
