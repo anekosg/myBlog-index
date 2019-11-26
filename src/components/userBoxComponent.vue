@@ -1,21 +1,23 @@
 <template>
   <div>
-    <p class="card-title">
-      <span>关于我</span>
-    </p>
-    <div class="clearfix">
-      <ul class="card-description ulFloat">
-        <li>昵称：aneko</li>
-        <li>职业：前端工程师</li>
-        <li>爱好：吉他,跑步,读书</li>
-      </ul>
-    </div>
-    <p class="card-chat">
-      <span>联系我</span>
-      <el-image src="images/weChat.png" fit="cover" class="chat-img-small"></el-image>
+    <el-card class="box-card box-user">
+      <p class="card-title">
+        <span>关于我</span>
+      </p>
+      <div class="clearfix">
+        <ul class="card-description ulFloat">
+          <li>昵称：aneko</li>
+          <li>职业：前端工程师</li>
+          <li>爱好：吉他,跑步,读书</li>
+        </ul>
+      </div>
+      <p class="card-chat">
+        <span>联系我</span>
+        <el-image src="images/weChat.png" fit="cover" class="chat-img-small"></el-image>
 
-      <el-image src="images/weChat.png" fit="cover" class="chat-img-large"></el-image>
-    </p>
+        <el-image src="images/weChat.png" fit="cover" class="chat-img-large"></el-image>
+      </p>
+    </el-card>
   </div>
 </template>
 
@@ -24,6 +26,10 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.box-user {
+  margin-bottom: 20px;
+}
+
 .box-card .card-title,
 .card-chat {
   margin: 0;

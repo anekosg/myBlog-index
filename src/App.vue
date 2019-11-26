@@ -38,13 +38,9 @@
                 <mainComponent></mainComponent>
               </el-main>
               <el-aside width="200px">
-                <el-card class="box-card box-user">
-                  <userBoxComponent></userBoxComponent>
-                </el-card>
+                <userBoxComponent></userBoxComponent>
 
-                <el-card class="box-card card-record">
                 <recordBoxComponent></recordBoxComponent>
-                </el-card>
               </el-aside>
             </el-container>
             <el-footer>Footer</el-footer>
@@ -56,12 +52,10 @@
 </template>
 
 <script >
+
 export default {
-  data() {
-    return {
-      activeIndex: "1",
-      activeIndex2: "1"
-    };
+  data: function() {
+    return {};
   },
   methods: {}
 };
@@ -84,15 +78,6 @@ body > .el-container {
 
 //右边
 .el-aside {
-}
-
-.box-user,
-.card-record {
-  margin-bottom: 20px;
-}
-
-.card-record .card-record-divTitle {
-  text-align: center;
 }
 </style>
 

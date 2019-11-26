@@ -14,13 +14,13 @@
         active-text-color="#37b3f1"
       >
         <el-menu-item index="1">我的技术栈</el-menu-item>
-        <el-menu-item index="2" >个人中心</el-menu-item>
+        <el-menu-item index="2">个人中心</el-menu-item>
         <!-- <el-submenu index="3">
           <template slot="title">个人中心</template>
           <el-menu-item index="3-1">选项1</el-menu-item>
           <el-menu-item index="3-2">选项2</el-menu-item>
           <el-menu-item index="3-3">选项3</el-menu-item>
-        </el-submenu> -->
+        </el-submenu>-->
       </el-menu>
 
       <div class="demo-input-suffix search">
@@ -32,7 +32,16 @@
 
 <script>
 export default {
-    
+  data:function (){
+    return {};
+  },
+  created:function() {
+      this.$axios.get('www.baidu.com').then((reponse)=>{
+        console.log(reponse);
+      },()=>{}).catch((error)=>{
+        console.log(error);
+      });
+  }
 };
 </script>
 
@@ -66,8 +75,7 @@ export default {
     color: #37b3f1 !important;
   }
   .el-menu-item {
-  border: 0 !important;
+    border: 0 !important;
+  }
 }
-}
-
 </style>
