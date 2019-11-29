@@ -4,43 +4,15 @@
       <el-col :span="24">
         <div class="grid-content bg-purple-dark">
           <el-container>
-            <navComponent></navComponent>
-            <!-- <el-header>
-              <div class="logo">
-                <span>My Blog |</span>
-                <span>今天又是美好的一天</span>
-              </div>
-
-              <el-menu
-                class="el-menu-demo"
-                mode="horizontal"
-                @select="handleSelect"
-                background-color="#000000"
-                text-color="#fff"
-                active-text-color="#37b3f1"
-              >
-                <el-menu-item index="1">处理中心</el-menu-item>
-                <el-menu-item index="2" disabled>消息中心</el-menu-item>
-                <el-submenu index="3">
-                  <template slot="title">个人中心</template>
-                  <el-menu-item index="3-1">选项1</el-menu-item>
-                  <el-menu-item index="3-2">选项2</el-menu-item>
-                  <el-menu-item index="3-3">选项3</el-menu-item>
-                </el-submenu>
-              </el-menu>
-
-              <div class="demo-input-suffix search">
-                <el-input suffix-icon="el-icon-search" placeholder="请输入搜索内容" size="small"></el-input>
-              </div>
-            </el-header>-->
+            <router-view name="index_navbar"></router-view>
             <el-container class="el-mains">
               <el-main>
-                <mainComponent></mainComponent>
+                <router-view name="index_carouselPic"></router-view>
+                <router-view name="index_contentTas"></router-view>
               </el-main>
               <el-aside width="200px">
-                <userBoxComponent></userBoxComponent>
-
-                <recordBoxComponent></recordBoxComponent>
+                <router-view name="index_userBox"></router-view>
+                <router-view name="index_commentBox"></router-view>
               </el-aside>
             </el-container>
             <el-footer>Footer</el-footer>
@@ -52,12 +24,16 @@
 </template>
 
 <script >
-
 export default {
   data: function() {
     return {};
   },
-  methods: {}
+  methods: {},
+  created: function() {
+    // this.$axios.get('/').then((response)=>{
+    //   console.log("response");
+    // }).catch();
+  }
 };
 </script>
 

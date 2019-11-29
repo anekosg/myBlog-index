@@ -33,6 +33,11 @@ module.exports = {
             // { test: /\.js$/, use: 'babel-loader' }, // 处理 .vue 文件的 js 以及兼容ES6语法（将ES6语法转ES5）
             //需要安装babel 的运行时 @babel/core；
             //以及 babel-preset-es2015
+            {
+                test: /\.js$/,
+                use: ['babel-loader'],
+                exclude: /node_modules/
+            },
             { test: /\.vue$/, use: 'vue-loader' } // 处理 .vue 文件的 loader
         ]
     },

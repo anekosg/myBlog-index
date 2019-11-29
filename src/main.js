@@ -1,41 +1,33 @@
+//初始化
 import './css/normalize.css'
 import './css/index.css'
-
-
+//加载 Vue 相关组件
 import Vue from 'vue'
-import app from '././App.vue'
-
-import 'element-ui/lib/theme-chalk/index.css';
-import ElementUI from 'element-ui';
-
+import axios from "axios"
+//Vue.use(axios);
+axios.defaults.baseURL = 'http://localhost:3000' //'http://www.baidu.com/'; //
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+//加载自定义路由
+import router from './router.js'
+//加载首页组件
+import app from './App.vue'
+//加载element ui
+import 'element-ui/lib/theme-chalk/index.css'
+import ElementUI from 'element-ui'
 Vue.use(ElementUI);
+// 加载帮助类
+import common from './js/common.js'
+Vue.prototype.common = common
 
-// import axios from "axios";
-// import common from './js/common.js'
-// axios.defaults.baseURL = common.BASE_URL;
+
 // // 或者
-// Vue.prototype.common = common;
-// //Vue.prototype.$axios = axios
-// Vue.use(axios);
 
+// Vue.prototype.$axios = axios
 
-
-// 定义组件
-//nav导航组件
-import navComponent from "./components/navComponent.vue";
-import mainComponent from "./components/mainComponent.vue";
-import userBoxComponent from "./components/userBoxComponent.vue";
-import recordBoxComponent from "./components/recordBoxComponent.vue";
-// mainTabs
-import contantTabsComponent from "./components/main/contantTabsComponent.vue";
-
-Vue.component('navComponent', navComponent);
-Vue.component('mainComponent', mainComponent);
-Vue.component('userBoxComponent', userBoxComponent);
-Vue.component('recordBoxComponent', recordBoxComponent);
-Vue.component('contantTabsComponent', contantTabsComponent);
 
 var vm = new Vue({
-    el: '#app',
-    render: h => h(app)
+    el: "#app",
+    render: h => h(app),
+    router: router
 })

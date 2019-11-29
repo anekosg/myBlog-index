@@ -22,8 +22,15 @@ html {
     clear: both
 }
 
+
+/* ul 初始化 */
+
 .ulFloat {
     float: left;
     text-decoration: none;
     list-style: none;
+}
+
+a {
+    text-decoration: none;
 }

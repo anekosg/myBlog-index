@@ -4,29 +4,18 @@
     <el-tabs class="main-tabs">
       <el-tab-pane label="置顶文章" name="first">
         <ul class="main-tabs-ul">
-          <li>
+          <li
+            v-for="(item,index) in contents"
+            :key="item.id"
+            v-on:mouseover="mouseover(item,index)"
+            v-on:mouseout="mouseout(item,index)"
+            v-bind:class={active:item.active}
+          >
             <div>
-              <span class="main-tabs-spanSerial">1</span>
-              <span class="main-tabs-spanTitle">我是握手</span>
+              <span class="main-tabs-spanSerial" v-text="item.sortNum"></span>
+              <span class="main-tabs-spanTitle" v-text="item.title"></span>
             </div>
-            <p>
-              我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握
-              手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手我是握手
-            </p>
-          </li>
-          <li>
-            <div>
-              <span class="main-tabs-spanSerial">2</span>
-              <span class="main-tabs-spanTitle">我是握手</span>
-            </div>
-            <p>11111</p>
-          </li>
-          <li>
-            <div>
-              <span class="main-tabs-spanSerial">3</span>
-              <span class="main-tabs-spanTitle">我是握手</span>
-            </div>
-            <p></p>
+            <p v-text="item.content"></p>
           </li>
         </ul>
       </el-tab-pane>
@@ -38,8 +27,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: function() {
+    return {
+      contents: this.common.contents,
+    };
+  },
+  methods: {
+    mouseover: function(item,index) {
+      debugger
+      this.common.contents[index].active = true;
+    },
+    mouseout: function(item,index) {
+     console.log(item)
+       console.log(this.common.contents)
+       var info = this.common.contents.find((item,i)=>{
+         item.active == true 
+       });
+       console.log(info)
+       if(info===null){
+          this.common.contents[0].active =true;
+       }
+       this.common.contents[index].active = false;
+    }
+  }
+};
 </script>
+
 
 <style lang="scss">
 .main-tabs {
@@ -54,7 +68,7 @@ export default {};
 .main-tabs {
   background-color: #fff;
   margin-bottom: 5px;
-  height: 300px;
+
   overflow: hidden;
   .el-tabs__nav {
     margin: 8px 0 0 60px;
@@ -94,25 +108,16 @@ export default {};
       }
     }
 
-    // & li:first-child {
-    //   p {
-    //     display: block;
-    //   }
-    //   & .main-tabs-spanSerial {
-    //     width: 30px;
-    //     height: 30px;
-    //     line-height: 30px;
-    //   }
-    //   & .main-tabs-spanTitle {
-    //     line-height: 30px;
-    //   }
-    // }
-
-    & li:hover {
+    & li.active {
       background: #f7f7f7;
       p {
-        display: block;
+        // display: block;
         font-size: 14px;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
       }
       .main-tabs-spanSerial {
         width: 20px;

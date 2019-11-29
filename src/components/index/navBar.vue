@@ -2,8 +2,10 @@
   <div>
     <el-header>
       <div class="logo">
-        <span>My Blog |</span>
-        <span>今天又是美好的一天</span>
+        <router-link to="/">
+          <span>My Blog |</span>
+          <span>今天又是美好的一天</span>
+        </router-link>
       </div>
 
       <el-menu
@@ -13,8 +15,13 @@
         text-color="#fff"
         active-text-color="#37b3f1"
       >
-        <el-menu-item index="1">我的技术栈</el-menu-item>
-        <el-menu-item index="2">个人中心</el-menu-item>
+        <el-menu-item
+          v-bind:index="item.id"
+          v-for="item in navItem"
+          v-bind:key="item.id"
+          v-text="item.name"
+        ></el-menu-item>
+
         <!-- <el-submenu index="3">
           <template slot="title">个人中心</template>
           <el-menu-item index="3-1">选项1</el-menu-item>
@@ -32,15 +39,17 @@
 
 <script>
 export default {
-  data:function (){
-    return {};
+  data: function() {
+    return {
+      navItem: this.common.navItem
+    };
   },
-  created:function() {
-      this.$axios.get('www.baidu.com').then((reponse)=>{
-        console.log(reponse);
-      },()=>{}).catch((error)=>{
-        console.log(error);
-      });
+  created: function() {
+    // this.$axios.get('www.baidu.com').then((reponse)=>{
+    //   console.log(reponse);
+    // },()=>{}).catch((error)=>{
+    //   console.log(error);
+    // });
   }
 };
 </script>
